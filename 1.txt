@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+ 
+using namespace std;
+ 
+string convert(int liczba, string l, string m, string h);
+ 
+int main()
+{
+    string ans[4] = { "","","","" };
+    int userinput;
+    cout << "Wpisz liczbe arabska od 1 to 3999: ";
+    cin >> userinput;
+    if (userinput < 1 || userinput > 3999)
+    {
+        cout << "Nieprawidlowa liczba. Wpisz liczbę z zakresu od 1 do 3999";
+ 
+        return 0;
+    }
+    int t = userinput / 1000;
+    int s = userinput % 1000 / 100;
+    int d = userinput % 100 / 10;
+    int j = userinput % 10 / 1;
+ 
+    ans[0] = convert(t, "M", "M", "M");
+    ans[1] = convert(s, "C", "D", "M");
+    ans[2] = convert(d, "X", "L", "C");
+    ans[3] = convert(j, "I", "V", "X");
+ 
+    cout << ans[0] << ans[1] << ans[2] << ans[3] << endl;
+ 
+    system("pause");
+    return 0;
+}
+ 
+string convert(int liczba, string l, string m, string h)
+{
+    if (liczba == 1)
+    {
+        return l;
+    }
+    if (liczba == 2)
+    {
+        return l+l;
+    }
+    if (liczba == 3)
+    {
+        return l+l+l;
+    }
+    if (liczba == 4)
+    {
+        return l+m;
+    }
+    if (liczba == 5)
+    {
+        return m;
+    }
+    if (liczba == 6)
+    {
+        return m+l;
+    }
+    if (liczba == 7)
+    {
+        return m+l+l;
+    }
+    if (liczba == 8)
+    {
+        return m + l + l+l;
+    }
+    if (liczba == 9)
+    {
+        return l+h;
+    }
+    if (liczba == 0)
+    {
+        return "";
+    }
+}
